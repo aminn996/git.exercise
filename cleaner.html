@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Local Cleaner Services</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(to right, #f7f8f8, #acbb78);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 800px;
+      background-color: #ffffff;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      animation: fadeIn 1s ease-out;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #2c3e50;
+    }
+
+    .service-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #f9f9f9;
+      padding: 1rem 1.5rem;
+      margin: 1rem 0;
+      border-radius: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .service-info {
+      flex-grow: 1;
+    }
+
+    .service-name {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .service-phone {
+      font-size: 1rem;
+      color: #666;
+    }
+
+    .call-button {
+      padding: 10px 20px;
+      background-color: #16a085;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .call-button:hover {
+      background-color: #138d75;
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Local Cleaner Services</h1>
+
+    <div class="service-card">
+      <div class="service-info">
+        <div class="service-name">Sparkle Home Cleaning</div>
+        <div class="service-phone">Cleaner – (555) 889-3322</div>
+      </div>
+      <a href="tel:5558893322" class="call-button">Call Now</a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-info">
+        <div class="service-name">FreshSpace Janitorial</div>
+        <div class="service-phone">Commercial – (555) 112-4477</div>
+      </div>
+      <a href="tel:5551124477" class="call-button">Call Now</a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-info">
+        <div class="service-name">EcoClean Solutions</div>
+        <div class="service-phone">Green Cleaning – (555) 778-9090</div>
+      </div>
+      <a href="tel:5557789090" class="call-button">Call Now</a>
+    </div>
+
+  </div>
+</body>
+</html>
