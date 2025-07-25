@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart Settings Page</title>
+  <style>
+    :root {
+      --bg-color: #f0f0f0;
+      --text-color: #222;
+      --box-bg: rgba(255, 255, 255, 0.8);
+      --primary: #007bff;
+    }
+
+    body.dark {
+      --bg-color: #121212;
+      --text-color: #fff;
+      --box-bg: rgba(40, 40, 40, 0.9);
+      --primary: #1e90ff;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      transition: background-color 0.4s, color 0.4s;
+    }
+
+    .settings-box {
+      background: var(--box-bg);
+      backdrop-filter: blur(12px);
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+      width: 350px;
+      animation: slideIn 1s ease-out;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .setting {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 500;
+    }
+
+    select,
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      font-size: 15px;
+      background: #fff;
+      color: #333;
+    }
+
+    .theme-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+
+    .toggle-switch {
+      position: relative;
+      width: 50px;
+      height: 24px;
+      background: #666;
+      border-radius: 30px;
+      transition: background 0.3s;
+    }
+
+    .toggle-switch::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #fff;
+      border-radius: 50%;
+      top: 2px;
+      left: 2px;
+      transition: transform 0.3s;
+    }
+
+    .toggle-switch.active {
+      background: var(--primary);
+    }
+
+    .toggle-switch.active::after {
+      transform: translateX(26px);
+    }
+
+    .location-link {
+      display: block;
+      margin-top: 8px;
+      font-size: 13px;
+      text-decoration: none;
+      color: var(--primary);
+    }
+
+    .save-btn {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background: var(--primary);
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .save-btn:hover {
+      background: #0056b3;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateY(30px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #0ea5e9;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Logo */
+.logo {
+  font-size: 1.6rem;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* Nav links */
+.nav-links a {
+  margin-left: 1.5rem;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Hover underline effect */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: white;
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-links a:hover {
+  color: #f0fdfa;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #005f73;
+  color: white;
+}
+
+.logo {
+  text-transform: inherit;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.nav-links a {
+  margin-left: 1.5rem;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+}
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+  </style>
+</head>
+<body>
+</head>
+   
+  <div class="settings-box">
+    <h2>Settings</h2>
+    <h2>
+        <a href="home.html"></a>
+    </h2>
+
+    <div class="setting">
+      <label for="country">Country</label>
+      <select id="country">
+        <option value="">Select your country</option>
+        <option value="fr">France</option>
+        <option value="us">United States</option>
+        <option value="de">Germany</option>
+        <option value="jp">Japan</option>
+        <option value="br">Tunisia</option>
+        <!-- Add more as needed -->
+      </select>
+    </div>
+
+    <div class="setting">
+      <label for="location">Exact Location</label>
+      <input type="text" id="location" placeholder="e.g. 123 Main St, Paris" />
+      <a class="location-link" id="mapLink" target="_blank" href="#">🔗 View on Map</a>
+    </div>
+
+    <div class="setting">
+      <label for="language">Language</label>
+      <select id="language">
+        <option value="en">English</option>
+        <option value="fr">Français</option>
+        <option value="es">Español</option>
+        <option value="de">Deutsch</option>
+        <option value="ja">日本語</option>
+        <option value="Ar">Arabic</option>
+        <!-- Add more languages -->
+      </select>
+    </div>
+
+    <div class="setting theme-toggle">
+      <label>Theme</label>
+      <div id="themeSwitch" class="toggle-switch"></div>
+    </div>
+
+    <button class="save-btn" onclick="saveSettings()">Save Settings</button>
+  </div>
+
+  <script>
+    const locationInput = document.getElementById("location");
+    const mapLink = document.getElementById("mapLink");
+    const themeSwitch = document.getElementById("themeSwitch");
+
+    // Update Google Maps link
+    locationInput.addEventListener("input", () => {
+      const query = encodeURIComponent(locationInput.value);
+      mapLink.href= `https://www.google.com/maps/search/?api=1&query=${query}`;
+    });
+
+    // Toggle dark/light theme
+    themeSwitch.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      themeSwitch.classList.toggle("active");
+    });
+
+    function saveSettings() {
+      const country = document.getElementById("country").value;
+      const location = document.getElementById("location").value;
+      const language = document.getElementById("language").value;
+      const isDark = document.body.classList.contains("dark");
+
+      alert(`✅ Settings saved:
+Country: ${country}
+Location: ${location}
+Language: ${language}
+Theme: ${isDark ? 'Dark' : 'Light'}
+`);
+
+    }
+     
+  </script>
+
+ 
+</body>
+</html>

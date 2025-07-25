@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Help</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+
+<style>
+  * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+ }
+
+ body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(120deg, #38bdf8, #3b82f6);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 1s ease-in-out;
+ }
+
+ .login-container {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 400px;
+  animation: slideUp 1s ease;
+ }
+
+.login-box h2 {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+.login-box p {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #f1f5f9;
+  font-size: 0.95rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group {
+  margin-bottom: 1.5rem;
+  color: white;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 0.7rem;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  outline: none;
+}
+
+.input-group input::placeholder {
+  color: #e2e8f0;
+}
+
+.input-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  font-size: 0.85rem;
+}
+
+.input-options label {
+  color: #f1f5f9;
+}
+
+.input-options a {
+  color: #f1f5f9;
+  text-decoration: none;
+}
+
+button {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #0ea5e9;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #0284c7;
+}
+
+.register-link {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: #e2e8f0;
+  font-size: 0.9rem;
+}
+
+.register-link a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    background-color: #1e3a8a;
+  }
+  to {
+    background: linear-gradient(120deg, #38bdf8, #3b82f6);
+  }
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .login-container {
+    margin: 1rem;
+    padding: 2rem;
+  }
+
+  .login-box h2 {
+    font-size: 1.5rem;
+  }
+
+  .login-box p {
+    font-size: 0.85rem;
+  }
+}
+</style>
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-box">
+      <h2>Welcome Back</h2>
+      <p>Please log in to continue</p>
+      <form>
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="you@example.com" required>
+        </div>
+
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="••••••••" required>
+        </div>
+
+        <div class="input-options">
+          <label><input type="checkbox" onclick="togglePassword()"> Show Password</label>
+          <a href="forgetpassword.html">Forgot password?</a>
+        </div>
+
+        <button type="submit">Login</button>
+
+        <p class="register-link">Don't have an account? <a href="signup.html">Sign up</a></p>
+        <p class="register-link"> <a href="home.html">Home</a></p> 
+    </form>
+    </div>
+  </div>
+
+  <script>
+    function togglePassword() {
+      const pw = document.getElementById("password");
+      pw.type = pw.type === "password" ? "text" : "password";
+    }
+  </script>
+</body>
+</html>
